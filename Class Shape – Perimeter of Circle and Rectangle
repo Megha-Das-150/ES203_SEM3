@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+    float r, l, w;
+
+public:
+    Shape(float a, float b, float c) {
+        r=a; l=b; w=c;
+    }
+
+    void circle() {
+        cout << "Circle Perimeter = " << 2*3.14*r << endl;
+    }
+
+    void rectangle() {
+        cout << "Rectangle Perimeter = " << 2*(l+w) << endl;
+    }
+
+    ~Shape() {
+        cout << "Object destroyed";
+    }
+};
+
+int main() {
+    Shape s(5, 10, 4);
+    s.circle();
+    s.rectangle();
+
+    return 0;
+}
