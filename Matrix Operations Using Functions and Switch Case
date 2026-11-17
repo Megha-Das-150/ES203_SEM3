@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+int a[2][2], b[2][2];
+
+void add() {
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            cout << a[i][j]+b[i][j] << " ";
+}
+
+void subtract() {
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            cout << a[i][j]-b[i][j] << " ";
+}
+
+void multiply() {
+    for(int i=0;i<2;i++) {
+        for(int j=0;j<2;j++) {
+            int s=0;
+            for(int k=0;k<2;k++)
+                s += a[i][k]*b[k][j];
+            cout << s << " ";
+        }
+        cout << endl;
+    }
+}
+
+void transpose() {
+    for(int i=0;i<2;i++) {
+        for(int j=0;j<2;j++)
+            cout << a[j][i] << " ";
+        cout << endl;
+    }
+}
+
+int main() {
+    cout << "Enter first matrix:\n";
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            cin >> a[i][j];
+
+    cout << "Enter second matrix:\n";
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            cin >> b[i][j];
+
+    int ch;
+    cout << "1.Add  2.Subtract  3.Multiply  4.Transpose\n";
+    cin >> ch;
+
+    switch(ch) {
+        case 1: add(); break;
+        case 2: subtract(); break;
+        case 3: multiply(); break;
+        case 4: transpose(); break;
+        default: cout << "Invalid choice";
+    }
+
+    return 0;
+}
