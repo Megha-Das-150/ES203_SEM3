@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Person {
+    char name[64], address[64];
+    int age;
+    float basic, hra, da, total;
+
+public:
+    Person() {}
+
+    Person(char n[], int a, char ad[],
+           float b, float h, float d) {
+        strcpy(name,n);
+        strcpy(address,ad);
+        age=a;
+        basic=b; hra=h; da=d;
+        total=basic+hra+da;
+    }
+
+    void input() {
+        cin >> name >> age >> address;
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    inline void display() {
+        cout << name << " Age: " << age << endl;
+    }
+
+    void salarySlip() {
+        cout << "\nSalary Slip\n";
+        cout << "Name: " << name << endl;
+        cout << "Basic: " << basic << endl;
+        cout << "HRA: " << hra << endl;
+        cout << "DA: " << da << endl;
+        cout << "Total Salary: " << total << endl;
+    }
+};
+
+int main() {
+    Person p[10];
+    int young=0, old=0;
+
+    cout << "Enter name, age and address of 10 persons:\n";
+
+    for(int i=0;i<10;i++) {
+        p[i].input();
+
+        if(p[i].getAge() < p[young].getAge())
+            young=i;
+
+        if(p[i].getAge() > p[old].getAge())
+            old=i;
+    }
+
+    cout << "\nYoungest Person:\n";
+    p[young].display();
+
+    cout << "\nEldest Person:\n";
+    p[old].display();
+
+    char n[]="Rahul", ad[]="Kolkata";
+    Person s(n,20,ad,20000,5000,3000);
+    s.salarySlip();
+
+    return 0;
+}
