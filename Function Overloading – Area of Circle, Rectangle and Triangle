@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+float AREA(float r) {
+    return 3.14*r*r;
+}
+
+int AREA(int l, int b) {
+    return l*b;
+}
+
+float AREA(float a, float b, float h) {
+    return 0.5*b*h;
+}
+
+int main() {
+    cout << "Circle Area: " << AREA(5.0f) << endl;
+    cout << "Rectangle Area: " << AREA(5,4) << endl;
+    cout << "Triangle Area: " << AREA(5.0f,4.0f,3.0f);
+
+    return 0;
+}
