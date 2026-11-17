@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+class Media {
+protected:
+    string title, publication;
+
+public:
+    virtual void read() {
+        cin >> title >> publication;
+    }
+
+    virtual void show() {
+        cout << title << " " << publication;
+    }
+
+    virtual ~Media() {}
+};
+
+class Book : public Media {
+    int pages;
+
+public:
+    void read() {
+        Media::read();
+        cin >> pages;
+    }
+
+    void show() {
+        cout << "Book: " << title << " "
+             << publication << " " << pages << " pages\n";
+    }
+};
+
+class Tape : public Media {
+    float time;
+
+public:
+    void read() {
+        Media::read();
+        cin >> time;
+    }
+
+    void show() {
+        cout << "Tape: " << title << " "
+             << publication << " " << time << " minutes\n";
+    }
+};
+
+int main() {
+    Book b;
+    Tape t;
+    Media *p;
+
+    p=&b;
+    cout << "Enter book title, publication and pages:\n";
+    p->read();
+    p->show();
+
+    p=&t;
+    cout << "\nEnter tape title, publication and playing time:\n";
+    p->read();
+    p->show();
+
+    return 0;
+}
