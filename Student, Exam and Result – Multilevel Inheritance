@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+protected:
+    int roll;
+    string name;
+
+public:
+    void getStudent() {
+        cout << "Enter roll and name: ";
+        cin >> roll >> name;
+    }
+};
+
+class Exam : public Student {
+protected:
+    int marks[6];
+
+public:
+    void getMarks() {
+        cout << "Enter marks of 6 subjects:\n";
+        for(int i=0;i<6;i++)
+            cin >> marks[i];
+    }
+};
+
+class Result : public Exam {
+public:
+    void display() {
+        int total=0;
+
+        for(int i=0;i<6;i++)
+            total += marks[i];
+
+        cout << "\nRoll: " << roll;
+        cout << "\nName: " << name;
+        cout << "\nTotal Marks: " << total;
+    }
+};
+
+int main() {
+    Result r;
+    r.getStudent();
+    r.getMarks();
+    r.display();
+
+    return 0;
+}
