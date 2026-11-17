@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void value(int x) {
+    x = x + 10;
+}
+
+void reference(int &x) {
+    x = x + 10;
+}
+
+int main() {
+    int a = 10, b = 10;
+
+    value(a);
+    cout << "Call by Value: " << a << endl;
+
+    reference(b);
+    cout << "Call by Reference: " << b;
+
+    return 0;
+}
